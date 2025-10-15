@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+// Base Class 1
+class Person {
+public:
+    string name;
+    int age;
+    void getPersonData() {
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Enter age: ";
+        cin >> age;
+    }
+};
+
+// Base Class 2
+class Marks {
+public:
+    int m1, m2, m3;
+    void getMarks() {
+        cout << "Enter 3 subject marks: ";
+        cin >> m1 >> m2 >> m3;
+    }
+};
+
+// Derived Class (inherits Person and Marks)
+class Student : public Person, public Marks {
+public:
+    void display() {
+        int total = m1 + m2 + m3;
+        float avg = total / 3.0;
+        cout << "\nName: " << name << "\nAge: " << age;
+        cout << "\nTotal Marks: " << total << "\nAverage: " << avg << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.getPersonData();
+    s.getMarks();
+    s.display();
+    return 0;
+}
